@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title>Lista de campeones</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="nuevoCampeon()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item-sliding  *ngFor="let campeon of campeones">
+			<ion-item>
+				<ion-avatar item-start>
+					<img [src]="campeon.icon">
+      </ion-avatar>
+					<h2>{{campeon.name}}</h2>
+					<p>{{campeon.title}}</p>
+					<button ion-button clear item-end (click)="irADetalleCampeon(campeon)">Ver</button>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="danger" (click) = "eliminarCampeon(campeon)">
+        <ion-icon name="trash"></ion-icon>
+          Eliminar
+      </button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+
+
+</ion-content>
